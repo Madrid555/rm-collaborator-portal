@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Join the official Real Madrid youth scouting program and become a trusted global collaborator." />
   <title>Real Madrid Collaborator Portal</title>
   <style>
     body {
@@ -11,7 +12,6 @@
       margin: 0;
       padding: 0;
     }
-
     .header {
       background-image: url('https://i.imgur.com/l8OPsiU.jpeg');
       background-size: cover;
@@ -21,7 +21,6 @@
       text-align: center;
       position: relative;
     }
-
     .header::before {
       content: "";
       position: absolute;
@@ -30,23 +29,19 @@
       background-color: rgba(1, 26, 68, 0.75);
       z-index: 0;
     }
-
     .header-content {
       position: relative;
       z-index: 1;
     }
-
     .header img {
       height: 60px;
       vertical-align: middle;
     }
-
     .header h1 {
       color: white;
       margin-top: 10px;
       text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
     }
-
     .container {
       max-width: 800px;
       margin: auto;
@@ -55,11 +50,9 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       line-height: 1.6;
     }
-
     h1, h2, h3 {
       color: #011a44;
     }
-
     .button {
       display: inline-block;
       background: #d3a600;
@@ -70,8 +63,12 @@
       margin: 20px 0;
       font-weight: bold;
       cursor: pointer;
+      transition: background 0.3s, box-shadow 0.3s;
     }
-
+    .button:hover {
+      background: #b89000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
     .footer {
       background: #011a44;
       color: white;
@@ -80,7 +77,6 @@
       padding: 20px;
       margin-top: 40px;
     }
-
     #formPopup {
       display: none;
       position: fixed;
@@ -91,7 +87,6 @@
       align-items: center;
       z-index: 1000;
     }
-
     .formContent {
       background: #fff;
       padding: 25px;
@@ -99,7 +94,6 @@
       max-width: 500px;
       width: 90%;
     }
-
     .formContent input, .formContent textarea {
       width: 100%;
       margin: 10px 0;
@@ -107,7 +101,6 @@
       border: 1px solid #ccc;
       border-radius: 5px;
     }
-
     .closeBtn {
       float: right;
       font-size: 18px;
@@ -128,6 +121,7 @@
     <h2>Become a Trusted Collaborator</h2>
     <p>Join our official global scouting program and help identify exceptional young talent across the world.</p>
     <button class="button" onclick="document.getElementById('formPopup').style.display='flex'">Register Now</button>
+
     <h3>Program Overview</h3>
     <ol>
       <li>Complete the online Collaborator Registration Form.</li>
@@ -135,6 +129,7 @@
       <li>Pay the registration & endorsement fee (€500 total; endorsed partners pay less).</li>
       <li>Receive your official digital license and role information.</li>
     </ol>
+
     <h3>Key Benefits</h3>
     <ul>
       <li>Earn recognition as an official Real Madrid youth collaborator.</li>
@@ -161,7 +156,7 @@
         <input type="text" placeholder="Coaching Certifications">
         <input type="text" placeholder="Club or Academy Affiliation">
         <textarea placeholder="Summary of Relevant Experience" rows="4"></textarea>
-        <input type="submit" class="button" value="Submit">
+        <input type="submit" class="button" value="Submit" />
       </form>
     </div>
   </div>
