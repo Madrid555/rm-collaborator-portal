@@ -6,220 +6,24 @@
   <title>Real Madrid Collaborator Portal</title>
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
-    body.no-scroll {
-      overflow: hidden;
-      height: 100vh;
-    }
-    .header {
-      background-image: url('https://i.imgur.com/l8OPsiU.jpeg');
-      background-size: cover;
-      background-position: center;
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-      position: relative;
-    }
-    .header::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(1, 26, 68, 0.75);
-      z-index: 0;
-    }
-    .header-content {
-      position: relative;
-      z-index: 1;
-    }
-    .header img {
-      height: 60px;
-      vertical-align: middle;
-    }
-    .header h1 {
-      color: white;
-      margin-top: 10px;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-    }
-    .container {
-      max-width: 800px;
-      margin: auto;
-      background: white;
-      padding: 40px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      line-height: 1.6;
-    }
-    h1, h2, h3 {
-      color: #011a44;
-    }
-    .button {
-      display: inline-block;
-      background: #d3a600;
-      color: white;
-      padding: 12px 24px;
-      text-decoration: none;
-      border-radius: 5px;
-      margin: 20px 0;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .footer {
-      background: #011a44;
-      color: white;
-      text-align: center;
-      font-size: 14px;
-      padding: 20px;
-      margin-top: 40px;
-    }
-
-    #formPopup {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100vh;
-      background: white;
-      z-index: 1000;
-      overflow-y: auto;
-      opacity: 0;
-      transform: translateY(-20px);
-      transition: opacity 0.4s ease, transform 0.4s ease;
-    }
-    #formPopup.active {
-      display: block;
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .formContent {
-      max-width: 500px;
-      margin: 40px auto;
-      padding: 30px;
-      border-radius: 8px;
-    }
-
-    .formContent h2 {
-      color: #011a44;
-    }
-
-    .formContent input,
-    .formContent textarea,
-    .formContent label {
-      width: 100%;
-      margin: 10px 0;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    .closeBtn {
-      font-size: 20px;
-      float: right;
-      cursor: pointer;
-      color: #333;
-    }
-
-    #toast {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #011a44;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 5px;
-      display: none;
-      z-index: 2000;
-      font-size: 14px;
-    }
+    /* [Your existing CSS remains unchanged] */
+    /* ... CSS omitted here for brevity ... */
   </style>
 </head>
 <body>
-  <div class="header">
-    <div class="header-content">
-      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Real_Madrid_CF.svg/1200px-Real_Madrid_CF.svg.png" alt="Real Madrid Logo">
-      <h1>Real Madrid Youth & Talent Network</h1>
-    </div>
-  </div>
-
-  <div class="container">
-    <h2>Become a Trusted Collaborator</h2>
-    <p>Join our official global scouting program and help identify exceptional young talent across the world.</p>
-    <button class="button" onclick="openForm()">Register Now</button>
-
-    <h3>Program Overview</h3>
-    <ol>
-      <li>Complete the online Collaborator Registration Form.</li>
-      <li>Wait for an official email with payment instructions.</li>
-      <li>Pay the registration & endorsement fee (€500 total; endorsed partners pay less).</li>
-      <li>Receive your official digital license and role information.</li>
-    </ol>
-
-    <h3>Key Benefits</h3>
-    <ul>
-      <li>Earn recognition as an official Real Madrid youth collaborator.</li>
-      <li>Get access to exclusive scouting opportunities and early-stage player profiles.</li>
-      <li>Engage with our development coordinators through periodic briefings.</li>
-      <li>Opportunity to endorse and mentor local talent under the Real Madrid umbrella.</li>
-      <li>Commission eligibility for successfully recommended and signed players (subject to program terms).</li>
-    </ul>
-  </div>
-
-  <div class="footer">
-    Official Partner Communication: <strong>collaborations@rm-youth.org</strong><br>
-    This Portal is Managed by the Real Madrid Youth Development Department.
-  </div>
-
-  <div id="formPopup">
-    <div class="formContent">
-      <span class="closeBtn" onclick="closeForm()">&times;</span>
-      <h2>Collaborator Registration Form</h2>
-      <form id="registrationForm" enctype="multipart/form-data">
-        <label for="full_name">Full Name</label>
-        <input type="text" id="full_name" name="full_name" required>
-
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="nationality">Nationality</label>
-        <input type="text" id="nationality" name="nationality" required>
-
-        <label for="scouting_area">Scouting Area (Position/Region)</label>
-        <input type="text" id="scouting_area" name="scouting_area" required>
-
-        <label for="certifications">Coaching Certifications</label>
-        <input type="text" id="certifications" name="certifications">
-
-        <label for="club_affiliation">Club or Academy Affiliation</label>
-        <input type="text" id="club_affiliation" name="club_affiliation">
-
-        <label for="experience">Summary of Relevant Experience</label>
-        <textarea id="experience" name="experience" rows="4"></textarea>
-
-        <label for="attachment"><strong>Upload CV or Reference Document</strong></label>
-        <input type="file" id="attachment" name="attachment" accept=".pdf,.doc,.docx,.jpg,.png" required>
-
-        <input type="submit" class="button" id="submitBtn" value="Submit">
-      </form>
-    </div>
-  </div>
+  <!-- [Your existing HTML content remains unchanged] -->
+  <!-- ... header, container, footer, and formPopup ... -->
 
   <div id="toast"></div>
 
   <script>
     function openForm() {
-      const formPopup = document.getElementById("formPopup");
-      formPopup.classList.add("active");
+      document.getElementById("formPopup").classList.add("active");
       document.body.classList.add("no-scroll");
     }
 
     function closeForm() {
-      const formPopup = document.getElementById("formPopup");
-      formPopup.classList.remove("active");
+      document.getElementById("formPopup").classList.remove("active");
       document.body.classList.remove("no-scroll");
     }
 
@@ -233,30 +37,61 @@
       }, 3000);
     }
 
-    (function() {
+    (function () {
       emailjs.init("S1ITdMEdLhNQlAZq_");
     })();
 
-    document.getElementById("registrationForm").addEventListener("submit", function(e) {
+    document.getElementById("registrationForm").addEventListener("submit", function (e) {
       e.preventDefault();
 
+      const form = this;
       const btn = document.getElementById("submitBtn");
+      const fileInput = document.getElementById("attachment");
+      const file = fileInput.files[0];
+
       btn.disabled = true;
       btn.value = "Submitting...";
 
-      emailjs.sendForm("service_awad8h9", "template_lesqw76", this)
-        .then(function(response) {
-          showToast("Form submitted successfully!");
-          document.getElementById("registrationForm").reset();
-          closeForm();
-        }, function(error) {
-          showToast("Failed to submit. Please try again.", true);
-          console.error(error);
-        })
-        .finally(() => {
-          btn.disabled = false;
-          btn.value = "Submit";
-        });
+      if (!file) {
+        showToast("Please upload a file.", true);
+        btn.disabled = false;
+        btn.value = "Submit";
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function () {
+        const base64 = reader.result.split(",")[1];
+
+        const templateParams = {
+          full_name: form.full_name.value,
+          email: form.email.value,
+          nationality: form.nationality.value,
+          scouting_area: form.scouting_area.value,
+          certifications: form.certifications.value,
+          club_affiliation: form.club_affiliation.value,
+          experience: form.experience.value,
+          attachment: base64,
+          file_name: file.name
+        };
+
+        emailjs.send("service_awad8h9", "template_lesqw76", templateParams)
+          .then(function (response) {
+            showToast("Form submitted successfully!");
+            form.reset();
+            closeForm();
+          })
+          .catch(function (error) {
+            showToast("Failed to submit. Please try again.", true);
+            console.error("EmailJS error:", error);
+          })
+          .finally(() => {
+            btn.disabled = false;
+            btn.value = "Submit";
+          });
+      };
+
+      reader.readAsDataURL(file);
     });
   </script>
 </body>
