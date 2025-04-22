@@ -13,6 +13,10 @@
       padding: 0;
     }
 
+    body.no-scroll {
+      overflow: hidden;
+    }
+
     .header {
       background-image: url('https://i.imgur.com/l8OPsiU.jpeg');
       background-size: cover;
@@ -89,11 +93,9 @@
       width: 100%; height: 100%;
       background: rgba(0,0,0,0.5);
       justify-content: center;
-      align-items: flex-start;
+      align-items: center;
       z-index: 1000;
       overflow-y: auto;
-      scroll-behavior: smooth;
-      padding: 40px 20px;
     }
 
     .formContent {
@@ -101,12 +103,13 @@
       padding: 25px;
       border-radius: 8px;
       max-width: 500px;
-      width: 100%;
-      margin: auto;
+      width: 90%;
+      margin: 40px auto;
       box-sizing: border-box;
     }
 
-    .formContent input, .formContent textarea {
+    .formContent input,
+    .formContent textarea {
       width: 100%;
       margin: 10px 0;
       padding: 12px;
@@ -129,12 +132,10 @@
       <h1>Real Madrid Youth & Talent Network</h1>
     </div>
   </div>
-
   <div class="container">
     <h2>Become a Trusted Collaborator</h2>
     <p>Join our official global scouting program and help identify exceptional young talent across the world.</p>
-    <button class="button" onclick="document.getElementById('formPopup').style.display='flex'">Register Now</button>
-
+    <button class="button" onclick="openForm()">Register Now</button>
     <h3>Program Overview</h3>
     <ol>
       <li>Complete the online Collaborator Registration Form.</li>
@@ -142,7 +143,6 @@
       <li>Pay the registration & endorsement fee (€500 total; endorsed partners pay less).</li>
       <li>Receive your official digital license and role information.</li>
     </ol>
-
     <h3>Key Benefits</h3>
     <ul>
       <li>Earn recognition as an official Real Madrid youth collaborator.</li>
@@ -152,7 +152,6 @@
       <li>Commission eligibility for successfully recommended and signed players (subject to program terms).</li>
     </ul>
   </div>
-
   <div class="footer">
     Official Partner Communication: <strong>collaborations@rm-youth.org</strong><br>
     This Portal is Managed by the Real Madrid Youth Development Department.
@@ -160,7 +159,7 @@
 
   <div id="formPopup">
     <div class="formContent">
-      <span class="closeBtn" onclick="document.getElementById('formPopup').style.display='none'">&times;</span>
+      <span class="closeBtn" onclick="closeForm()">&times;</span>
       <h2>Collaborator Registration Form</h2>
       <form id="registrationForm" enctype="multipart/form-data">
         <input type="text" name="full_name" placeholder="Full Name" required>
@@ -178,6 +177,16 @@
   </div>
 
   <script>
+    function openForm() {
+      document.getElementById("formPopup").style.display = "flex";
+      document.body.classList.add("no-scroll");
+    }
+
+    function closeForm() {
+      document.getElementById("formPopup").style.display = "none";
+      document.body.classList.remove("no-scroll");
+    }
+
     (function() {
       emailjs.init("S1ITdMEdLhNQlAZq_");
     })();
@@ -188,7 +197,7 @@
         .then(function(response) {
           alert("Your form was successfully submitted. Thank you!");
           document.getElementById("registrationForm").reset();
-          document.getElementById("formPopup").style.display = "none";
+          closeForm();
         }, function(error) {
           alert("Failed to send form. Please try again.");
           console.error(error);
