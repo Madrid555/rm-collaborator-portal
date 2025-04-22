@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Real Madrid Collaborator Portal</title>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -110,12 +111,10 @@
       <h1>Real Madrid Youth & Talent Network</h1>
     </div>
   </div>
-
   <div class="container">
     <h2>Become a Trusted Collaborator</h2>
     <p>Join our official global scouting program and help identify exceptional young talent across the world.</p>
     <button class="button" onclick="document.getElementById('formPopup').style.display='flex'">Register Now</button>
-
     <h3>Program Overview</h3>
     <ol>
       <li>Complete the online Collaborator Registration Form.</li>
@@ -123,7 +122,6 @@
       <li>Pay the registration & endorsement fee (€500 total; endorsed partners pay less).</li>
       <li>Receive your official digital license and role information.</li>
     </ol>
-
     <h3>Key Benefits</h3>
     <ul>
       <li>Earn recognition as an official Real Madrid youth collaborator.</li>
@@ -133,7 +131,6 @@
       <li>Commission eligibility for successfully recommended and signed players (subject to program terms).</li>
     </ul>
   </div>
-
   <div class="footer">
     Official Partner Communication: <strong>collaborations@rm-youth.org</strong><br>
     This Portal is Managed by the Real Madrid Youth Development Department.
@@ -149,24 +146,30 @@
         <input type="text" name="nationality" placeholder="Nationality" required>
         <input type="text" name="scouting_area" placeholder="Area of Scouting (Position/Region)" required>
         <input type="text" name="certifications" placeholder="Coaching Certifications">
-        <input type="text" name="affiliation" placeholder="Club or Academy Affiliation">
+        <input type="text" name="club_affiliation" placeholder="Club or Academy Affiliation">
         <textarea name="experience" placeholder="Summary of Relevant Experience" rows="4"></textarea>
         <input type="submit" class="button" value="Submit">
       </form>
     </div>
   </div>
 
-  <!-- You can add your EmailJS integration here -->
   <script>
-    // Example basic setup for EmailJS (if used):
-    // emailjs.init("YOUR_USER_ID");
+    (function() {
+      emailjs.init("S1ITdMEdLhNQlAZq_");
+    })();
 
     document.getElementById("registrationForm").addEventListener("submit", function(e) {
       e.preventDefault();
-      // EmailJS logic goes here
-      alert("Form submitted successfully (connect with EmailJS here).");
-      document.getElementById('formPopup').style.display = 'none';
-      this.reset();
+
+      emailjs.sendForm("service_awad8h9", "template_lesqw76", this)
+        .then(function(response) {
+          alert("Your form was successfully submitted. Thank you!");
+          document.getElementById("registrationForm").reset();
+          document.getElementById("formPopup").style.display = "none";
+        }, function(error) {
+          alert("Failed to send form. Please try again.");
+          console.error(error);
+        });
     });
   </script>
 </body>
