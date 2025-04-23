@@ -6,158 +6,28 @@
   <title>Real Madrid Collaborator Portal</title>
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
-
-    body.no-scroll {
-      overflow: hidden;
-      height: 100vh;
-    }
-
-    .header {
-      background-image: url('https://i.imgur.com/l8OPsiU.jpeg');
-      background-size: cover;
-      background-position: center;
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-      position: relative;
-    }
-
-    .header::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(1, 26, 68, 0.75);
-      z-index: 0;
-    }
-
-    .header-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .header img {
-      height: 60px;
-      vertical-align: middle;
-    }
-
-    .header h1 {
-      color: white;
-      margin-top: 10px;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-    }
-
-    .container {
-      max-width: 800px;
-      margin: auto;
-      background: white;
-      padding: 40px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      line-height: 1.6;
-    }
-
-    h1, h2, h3 {
-      color: #011a44;
-    }
-
-    .button {
-      display: inline-block;
-      background: #d3a600;
-      color: white;
-      padding: 12px 24px;
-      text-decoration: none;
-      border-radius: 5px;
-      margin: 20px 0;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .footer {
-      background: #011a44;
-      color: white;
-      text-align: center;
-      font-size: 14px;
-      padding: 20px;
-      margin-top: 40px;
-    }
-
-    #formPopup {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background: white;
-      z-index: 1000;
-      overflow-y: auto;
-      opacity: 0;
-      transform: translateY(-20px);
-      transition: opacity 0.4s ease, transform 0.4s ease;
-    }
-
-    #formPopup.active {
-      display: block;
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .formContent {
-      max-width: 500px;
-      margin: 40px auto;
-      padding: 30px;
-      border-radius: 8px;
-    }
-
-    .formContent h2 {
-      color: #011a44;
-    }
-
-    .formContent input, .formContent textarea, .formContent label {
-      width: 100%;
-      margin: 10px 0;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    .closeBtn {
-      font-size: 20px;
-      float: right;
-      cursor: pointer;
-      color: #333;
-    }
-
-    #toast {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #011a44;
-      color: white;
-      padding: 14px 24px;
-      border-radius: 8px;
-      display: none;
-      z-index: 2000;
-      font-size: 16px;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-
-    #toast.show {
-      display: block;
-      opacity: 1;
-    }
+    body { font-family: 'Segoe UI', sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+    body.no-scroll { overflow: hidden; height: 100vh; }
+    .header { background-image: url('https://i.imgur.com/nixSIME.jpeg'); background-size: cover; background-position: center; color: white; padding: 60px 20px; text-align: center; position: relative; }
+    .header::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(1, 26, 68, 0.75); z-index: 0; }
+    .header-content { position: relative; z-index: 1; }
+    .header img { height: 60px; vertical-align: middle; }
+    .header h1 { color: white; margin-top: 10px; text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); }
+    .container { max-width: 800px; margin: auto; background: white; padding: 40px; box-shadow: 0 0 10px rgba(0,0,0,0.1); line-height: 1.6; }
+    h1, h2, h3 { color: #011a44; }
+    .button { display: inline-block; background: #d3a600; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 20px 0; font-weight: bold; cursor: pointer; }
+    .footer { background: #011a44; color: white; text-align: center; font-size: 14px; padding: 20px; margin-top: 40px; }
+    #formPopup { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: white; z-index: 1000; overflow-y: auto; opacity: 0; transform: translateY(-20px); transition: opacity 0.4s ease, transform 0.4s ease; }
+    #formPopup.active { display: block; opacity: 1; transform: translateY(0); }
+    .formContent { max-width: 500px; margin: 40px auto; padding: 30px; border-radius: 8px; }
+    .formContent h2 { color: #011a44; }
+    .formContent input, .formContent textarea, .formContent label { width: 100%; margin: 10px 0; padding: 12px; border: 1px solid #ccc; border-radius: 5px; }
+    .closeBtn { font-size: 20px; float: right; cursor: pointer; color: #333; }
+    #toast { position: fixed; bottom: 20px; right: 20px; background: #011a44; color: white; padding: 12px 20px; border-radius: 5px; display: none; z-index: 2000; font-size: 14px; }
   </style>
 </head>
 <body>
+
   <div class="header">
     <div class="header-content">
       <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Real_Madrid_CF.svg/1200px-Real_Madrid_CF.svg.png" alt="Real Madrid Logo">
@@ -169,7 +39,6 @@
     <h2>Become a Trusted Collaborator</h2>
     <p>Join our official global scouting program and help identify exceptional young talent across the world.</p>
     <button class="button" onclick="openForm()">Register Now</button>
-
     <h3>Program Overview</h3>
     <ol>
       <li>Complete the online Collaborator Registration Form.</li>
@@ -177,7 +46,6 @@
       <li>Pay the registration & endorsement fee (€500 total; endorsed partners pay less).</li>
       <li>Receive your official digital license and role information.</li>
     </ol>
-
     <h3>Key Benefits</h3>
     <ul>
       <li>Earn recognition as an official Real Madrid youth collaborator.</li>
@@ -200,28 +68,20 @@
       <form id="registrationForm">
         <label for="full_name">Full Name</label>
         <input type="text" id="full_name" name="full_name" required>
-
         <label for="email">Email Address</label>
         <input type="email" id="email" name="email" required>
-
         <label for="nationality">Nationality</label>
         <input type="text" id="nationality" name="nationality" required>
-
         <label for="scouting_area">Scouting Area (Position/Region)</label>
         <input type="text" id="scouting_area" name="scouting_area" required>
-
         <label for="certifications">Coaching Certifications</label>
         <input type="text" id="certifications" name="certifications">
-
         <label for="club_affiliation">Club or Academy Affiliation</label>
         <input type="text" id="club_affiliation" name="club_affiliation">
-
         <label for="experience">Summary of Relevant Experience</label>
         <textarea id="experience" name="experience" rows="4"></textarea>
-
         <label for="attachment"><strong>Upload CV or Reference Document</strong></label>
         <input type="file" id="attachment" name="attachment" accept=".pdf,.doc,.docx,.jpg,.png" required>
-
         <input type="submit" class="button" id="submitBtn" value="Submit">
       </form>
     </div>
@@ -234,20 +94,18 @@
       document.getElementById("formPopup").classList.add("active");
       document.body.classList.add("no-scroll");
     }
-
     function closeForm() {
       document.getElementById("formPopup").classList.remove("active");
       document.body.classList.remove("no-scroll");
     }
-
     function showToast(message, isError = false) {
       const toast = document.getElementById("toast");
-      toast.innerHTML = isError ? message : `<span style="margin-right:8px;">✔</span>${message}`;
       toast.style.backgroundColor = isError ? "#c0392b" : "#011a44";
-      toast.classList.add("show");
+      toast.textContent = message;
+      toast.style.display = "block";
       setTimeout(() => {
-        toast.classList.remove("show");
-      }, 5000);
+        toast.style.display = "none";
+      }, 3000);
     }
 
     (function () {
@@ -262,6 +120,7 @@
 
       const fileInput = document.getElementById("attachment");
       const file = fileInput.files[0];
+
       const formData = new FormData();
       formData.append("file", file);
       formData.append("upload_preset", "unsigned_preset");
@@ -272,6 +131,7 @@
           body: formData,
         });
         const uploadData = await uploadRes.json();
+
         const imageUrl = uploadData.secure_url;
 
         const templateParams = {
@@ -298,5 +158,6 @@
       }
     });
   </script>
+
 </body>
 </html>
