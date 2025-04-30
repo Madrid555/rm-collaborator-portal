@@ -27,14 +27,12 @@
   </style>
 </head>
 <body>
-
   <div class="header">
     <div class="header-content">
       <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Real_Madrid_CF.svg/1200px-Real_Madrid_CF.svg.png" alt="Real Madrid Logo">
       <h1>Real Madrid Youth & Talent Network</h1>
     </div>
   </div>
-
   <div class="container">
     <h2>Become a Trusted Collaborator</h2>
     <p>Join our official global scouting program and help identify exceptional young talent across the world.</p>
@@ -55,12 +53,10 @@
       <li>Eligible for commission on successfully recommended and signed players (subject to program terms).</li>
     </ul>
   </div>
-
   <div class="footer">
     Official Partner Communication: <strong>madridistas@corp.realmadrid.com</strong><br>
     This Portal is Officially Managed by the Real Madrid Youth Development Department.
   </div>
-
   <div id="formPopup">
     <div class="formContent">
       <span class="closeBtn" onclick="closeForm()">&times;</span>
@@ -86,9 +82,7 @@
       </form>
     </div>
   </div>
-
   <div id="toast"></div>
-
   <script>
     function openForm() {
       document.getElementById("formPopup").classList.add("active");
@@ -117,10 +111,8 @@
       const btn = document.getElementById("submitBtn");
       btn.disabled = true;
       btn.value = "Uploading...";
-
       const fileInput = document.getElementById("attachment");
       const file = fileInput.files[0];
-
       const formData = new FormData();
       formData.append("file", file);
       formData.append("upload_preset", "unsigned_preset");
@@ -131,7 +123,6 @@
           body: formData,
         });
         const uploadData = await uploadRes.json();
-
         const imageUrl = uploadData.secure_url;
 
         const templateParams = {
@@ -145,7 +136,12 @@
           attachment_url: imageUrl,
         };
 
+        // Send to internal team
         await emailjs.send("service_awad8h9", "template_lesqw76", templateParams);
+
+        // Send receipt to applicant
+        await emailjs.send("service_awad8h9", "template_litgyb8", templateParams);
+
         showToast("Form submitted successfully!");
         this.reset();
         closeForm();
@@ -158,6 +154,5 @@
       }
     });
   </script>
-
 </body>
 </html>
