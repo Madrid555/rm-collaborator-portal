@@ -142,7 +142,7 @@
         // Send receipt to applicant
         await emailjs.send("service_96jc01n", "template_j5yibjb", templateParams);
 
-        showToast("Submitted! Please check your email (including spam folder) for your receipt.");
+        showToast("Submitted! Please check your email for your receipt.");
         this.reset();
         closeForm();
       } catch (err) {
